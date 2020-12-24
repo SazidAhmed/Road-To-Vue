@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 3 Basics</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- List Rendering -->
+       <ul>
+           <li v-for="item in items">
+               Name : {{item.name}} - Price : {{item.price}}
+           </li>
+       </ul>
+    </div>
+    <script src="listRendering.js"></script>
+</body>
+</html>

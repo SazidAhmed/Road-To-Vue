@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 3 Basics</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- attribute binding v-bind: -->
+        <a :href="url">Google</a>
+        <ul>
+            <li v-for="item in items">
+                <img :src="item.img" :alt="item.name">
+                <h3>Name : {{item.name}}</h3>
+                <p>Price : {{item.price}}</p>
+            </li>
+        </ul>
+    </div>
+    <script src="attributeBinding.js"></script>
+</body>
+</html>

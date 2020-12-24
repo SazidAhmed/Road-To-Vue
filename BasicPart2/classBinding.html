@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 3 Basics</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+        body{
+            background:#eee;
+            max-width: 690px;
+            margin: 20px auto;
+        }
+        p, h3, ul{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        li.fav{
+            background:tomato;
+            color: cornsilk;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Dynamic Class binding v-bind: -->
+        <ul>
+            <li v-for="item in items" :class="{ fav:item.isFav }" @click="toggleFav(item)">
+                <img :src="item.img" :alt="item.name">
+                <h3>{{item.name}}</h3>
+                <p>Price : $ {{item.price}}</p>
+            </li>
+        </ul>
+    </div>
+    <script src="classBinding.js"></script>
+</body>
+</html>
