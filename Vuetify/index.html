@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="src/css/vuetify.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-main>
+        <nav>
+            <!-- topnav -->
+            <v-toolbar flat>
+              <v-app-bar-nav-icon class="grey--text" @click="drawer =!drawer"></v-app-bar-nav-icon>
+              <v-app-bar flat>
+                <v-toolbar-title class="text-uppercase grey--text">
+                  <span class="font-weight-light">Admin</span>
+                  <span>Panel</span>
+                </v-toolbar-title>
+                <v-spacer></v-spacer>
+
+                <!-- dropdown menu -->
+                <div class="text-center">
+                  <v-menu offset-y>
+                    <template v-slot:activator="{ on,attrs }">
+                      <v-btn text color="grey" v-bind="attrs" v-on="on">
+                        <v-icon>mdi-menu-down</v-icon>
+                        <span>Vuetify Admin</span>
+                      </v-btn>
+                    </template>
+                    <v-list>
+                      <v-list-item v-for="profile in profiles" :key="profile.text" :href="profile.url">
+                        <v-icon class="grey--text" left>{{ profile.icon }}</v-icon>
+                        <v-list-item-title >{{ profile.text }}</v-list-item-title>
+                      </v-list-item>
+                    </v-list>
+                  </v-menu>
+                </div>
+                <!--end dropdown -->
+              </v-app-bar>
+            </v-toolbar>
+         
+            <!-- drawer -->
+            <v-navigation-drawer app v-model="drawer" color="deep-purple darken-1">
+              <!-- avater -->
+              <v-layout column align-center>
+                <v-flex class="mt-5">
+                  <v-avatar size="100">
+                    <img class="text-lg-center" src="assets/logo.svg" />
+                  </v-avatar>
+                  <p class="white--text subheading mt-1">Vuetify Admin</p>
+                </v-flex>
+                <!-- Popup Button -->
+              </v-layout>
+              <!-- list -->
+              <v-list>
+                <v-list-item v-for="sidenav in sidenavs" :key="sidenav.text" :href="sidenav.url">
+                  <v-list-item-action>
+                    <v-icon class="white--text">{{ sidenav.icon }}</v-icon>
+                  </v-list-item-action>
+                  <v-list-item-content>
+                    <v-list-item-title class="white--text">{{ sidenav.text }}</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list>
+              <v-footer padless absolute class="deep-purple darken-2 my-10px">
+                <v-col class="text-center grey--text" cols="12">
+                    <strong >Copyright@SazidAhmed{{ new Date().getFullYear() }}</strong>
+                </v-col>
+            </v-footer>
+            </v-navigation-drawer>
+        </nav>
+      </v-main>
+    </v-app>
+  </div>
+  <script src="src/js/vue.js"></script>
+  <script src="src/js/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+        data () {
+            return {
+                drawer: true,
+                sidenavs: [
+                    { 
+                        icon: "mdi-view-dashboard", 
+                        text: "Dashboard",
+                        url: '/profile',
+                    },
+
+                    { 
+                        icon: "mdi-account-supervisor-circle", 
+                        text: "Profile",
+                        url: '/profile',
+                    },
+
+                    {
+                        icon: "mdi-settings",
+                        text: "Settings",
+                        url: '/settings',
+                    },
+
+                    { 
+                        icon: "mdi-exit-to-app", 
+                        text: "Sign Out",
+                        url: '/signout',
+                    },
+                ],
+
+                profiles: [
+                    { 
+                        icon: "mdi-account-supervisor-circle", 
+                        text: "Profile",
+                        url: '/profile',
+                    },
+
+                    {
+                        icon: "mdi-settings",
+                        text: "Settings",
+                        url: '/settings',
+                    },
+
+                    { 
+                        icon: "mdi-exit-to-app", 
+                        text: "Sign Out",
+                        url: '/signout',
+                    },
+                ],
+                icons: [
+                    'mdi-facebook',
+                    'mdi-twitter',
+                    'mdi-linkedin',
+                    'mdi-instagram',
+                ],
+                
+            }
+        },
+
+    })
+  </script>
+</body>
+</html>

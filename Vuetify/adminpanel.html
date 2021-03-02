@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-main>
+        <nav>
+            <!-- Top Nav -->
+            <v-toolbar flat >
+              <v-app-bar-nav-icon class="grey--text" @click="drawer =!drawer"></v-app-bar-nav-icon>
+              <v-app-bar flat :clipped-left="$vuetify.breakpoint.lgAndUp">
+                <v-toolbar-title class="text-uppercase grey--text">
+                  <span class="font-weight-light">Admin</span>
+                  <span>Panel</span>
+                </v-toolbar-title>
+                <v-spacer></v-spacer>
+                <!-- dropdown menu -->
+                <div class="text-center">
+                  <v-menu offset-y>
+                    <template v-slot:activator="{ on,attrs }">
+                      <v-btn text color="grey" v-bind="attrs" v-on="on">
+                        <v-icon>mdi-menu-down</v-icon>
+                        <span>Vuetify Admin</span>
+                      </v-btn>
+                    </template>
+                    <v-list>
+                      <v-list-item v-for="profile in profiles" :key="profile.text" :href="profile.url">
+                        <v-icon class="grey--text" left>{{ profile.icon }}</v-icon>
+                        <v-list-item-title >{{ profile.text }}</v-list-item-title>
+                      </v-list-item>
+                    </v-list>
+                  </v-menu>
+                </div>
+                <!--end dropdown -->
+              </v-app-bar>
+            </v-toolbar>
+            <!-- Top Nav End-->
+
+            <!-- Left Side Navigation -->
+            <v-navigation-drawer app v-model="drawer" color="deep-purple darken-1" :clipped="$vuetify.breakpoint.lgAndUp">
+              <!-- avater -->
+              <v-layout column align-center>
+                <v-flex class="mt-5">
+                  <v-avatar size="100">
+                    <img class="text-lg-center" src="assets/logo.svg" />
+                  </v-avatar>
+                  <p class="white--text subheading mt-1">Vuetify Admin</p>
+                </v-flex>
+                <!-- Popup Button -->
+              </v-layout>
+              <!-- list -->
+              <v-list>
+                <v-list-item v-for="sidenav in sidenavs" :key="sidenav.text" :href="sidenav.url">
+                  <v-list-item-action>
+                    <v-icon class="white--text">{{ sidenav.icon }}</v-icon>
+                  </v-list-item-action>
+                  <v-list-item-content>
+                    <v-list-item-title class="white--text">{{ sidenav.text }}</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list>
+              <v-footer absolute class="deep-purple darken-2 my-10px">
+                <v-col class="text-center grey--text" cols="12">
+                    <strong >Copyright@SazidAhmed{{ new Date().getFullYear() }}</strong>
+                </v-col>
+            </v-footer>
+            </v-navigation-drawer>
+            <!-- Left Side Navigation End -->
+        </nav>
+        <v-container>
+          <!-- breadcrumbs -->
+            <v-breadcrumbs :items="breadcrumbItems">
+              <template v-slot:divider>
+                <v-icon>mdi-chevron-right</v-icon>
+              </template>
+            </v-breadcrumbs>
+          <!-- breadcrumbs End-->
+
+          <!-- Cards -->
+          <v-row dense>
+            <v-col
+              v-for="(item, i) in items"
+              :key="i"
+              cols="sm12 md6 lg3 xl3"
+              
+            >
+              <v-card
+                :color="item.color"
+                dark
+              >
+                <div class="d-flex flex-no-wrap justify-space-between my-5px">
+                  <div>
+                    <v-card-title
+                      class="headline"
+                      v-text="item.title"
+                    ></v-card-title>
+
+                    <v-card-subtitle v-text="item.artist"></v-card-subtitle>
+
+                    <v-card-actions>
+                      <v-btn
+                        class="ml-2 mt-5"
+                        outlined
+                        rounded
+                        small
+                      >
+                       Details
+                      </v-btn>
+                    </v-card-actions>
+                  </div>
+
+                  <v-avatar
+                    class="ma-3"
+                    size="125"
+                    tile
+                  >
+                    <v-img :src="item.src"></v-img>
+                  </v-avatar>
+                </div>
+              </v-card>
+            </v-col>
+          </v-row>
+          <!-- Cards Ends-->
+          <br>
+          <!-- Data Table-->
+          <template>
+            <v-card>
+              <v-card-title>
+                <v-btn medium @click="createItem()" color="green" dark > 
+                <v-icon dark medium> mdi-plus </v-icon> New </v-btn>
+                <v-spacer></v-spacer>
+                <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details ></v-text-field>
+              </v-card-title>
+              <!-- datatable -->
+              <v-data-table :headers="headers" :items="desserts" :search="search" >
+                <template v-slot:item.image="{ item }">
+                  <img :src="'assets/img/' + item.image" style="width: 60px; margin-top: 5px;" />
+                </template>
+                <template v-slot:item.actions="{ item }">
+                  <v-icon small color="cyan" class="mr-2" @click="editItem(item)" > mdi-pencil </v-icon>
+                  <v-icon small color="red"  @click="deleteItem(item)" > mdi-delete </v-icon>
+              </template>
+              </v-data-table>
+              <!-- End datatable -->
+            </v-card>
+          </template>
+
+          <!-- Delete Modal -->
+          <template>
+            <v-row justify="center">
+              <v-dialog
+                v-model="deleteDialog"
+                persistent
+                max-width="290"
+              >
+                <v-card>
+                  <v-card-title class="headline">Confirm To Delete.</v-card-title>
+                  <v-card-text class=" text-h6 text-center"></v-card-text>
+                  <v-card-actions >
+                    <v-spacer></v-spacer>
+                    <v-btn 
+                      color="red darken-1"
+                      text
+                      @click="deleteDialog = false"
+                    >
+                      Cancel
+                    </v-btn>
+                    <v-btn 
+                      color="green darken-1"
+                      text
+                      @click="deleteDialog = false"
+                    >
+                      Confirm
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </v-row>
+          </template>
+          <!-- Create Modal -->
+          <template>
+            <v-row justify="center">
+              <v-dialog
+                v-model="createDialog"
+                persistent
+                max-width="600px"
+              >
+                <v-card>
+                  <v-card-title>
+                    <span class="headline">New Category</span>
+                  </v-card-title>
+                  <v-card-text>
+                    <v-container>
+                      <v-row>
+                        <v-col
+                          cols="12"
+                          sm="12"
+                          md="7"
+                        >
+                          <v-text-field
+                            label="Category Name"
+                            hint="Enter Name Of Category Here"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="12" md="5" >
+                          <v-file-input  accept="image/*" label="Upload Image" ></v-file-input>
+                      </v-col>
+                      </v-row>
+                    </v-container>
+                  </v-card-text>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                      color="red darken-1"
+                      text
+                      @click="createDialog = false"
+                    >
+                      Cancel
+                    </v-btn>
+                    <v-btn
+                      color="green darken-1"
+                      text
+                      @click="createDialog = false"
+                    >
+                      Submit
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </v-row>
+          </template>
+          <!-- Forms Ends-->
+        </v-container>
+      </v-main>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="adminpanel.js"></script>
+</body>
+</html>

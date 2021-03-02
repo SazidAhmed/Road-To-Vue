@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 3 Basics</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  </head>
+<body>
+    <div id="app">
+        <v-app>
+            <v-main>
+                <v-row>
+                    <v-col>
+                        <h2>{{shop}}</h2>
+                        <v-btn color="green" @click="showMenuItems" v-show="menuBtn">
+                            <span v-if="!selectItems">show Menu</span>
+                            <span v-if="selectItems">Hide Menu</span>
+                        </v-btn>
+                        <div v-show="selectItems">
+                            <p>Select Item Here: 
+                                <ul>
+                                    <li><v-btn color="red" @click="pizza()">Pizza</v-btn></li><br>
+                                    <li><v-btn color="red" @click="burger('Chicken Burger', '5', '1')">Burger</v-btn></li>
+                                </ul>
+                            </p>
+                        </div>
+                    </v-col>
+                    <v-col class="mt-10">
+                        <div v-if="showItem">
+                            <p>Item : {{name}}</p>
+                            <p>Price : $ {{price * qty}}</p>
+                            <p>Quantity : 
+                                <v-btn color="blue" @click="qty--">-</v-btn> {{qty}} 
+                                <v-btn color="blue" v-on:click="qty++">+</v-btn>
+                            </p>
+                            <p>
+                                <v-btn color="green" @click="order()">Confirm Order</v-btn>
+                            </p>
+                        </div>
+                
+                        <div v-if="orderConfirmed">
+                            <h2>Order Has Been Confirmed.</h2>
+                            <p>Item : {{name}}</p>
+                            <p>Price : $ {{price * qty}}</p>
+                            <p>Quantity : {{qty}}</p>
+                            <p>
+                                <v-btn color="green" @click="orderMore()">Order More Items</v-btn>
+                                <v-btn color="red" @click="exit()">Exit App</v-btn>
+                            </p>
+                        </div>
+                    </v-col>
+                </v-row>
+                
+                <v-row v-show="greetings">
+                    <h2 color="green">Thank You. See You Again !</h2>
+                </v-row>
+            <v-main>
+        <v-app>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="final.js"></script>
+</body>
+</html>
