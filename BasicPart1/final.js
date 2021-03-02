@@ -1,7 +1,9 @@
-const app = Vue.createApp({
+new Vue({
+    el: '#app',
+    vuetify: new Vuetify(),
     data(){
         return{
-            brand:'Awesome Food Court !',
+            shop:'Awesome Food Court !',
             name : '',
             price:'',
             qty:'',
@@ -46,5 +48,3 @@ const app = Vue.createApp({
         }
     }
 })
-
-app.mount('#app')

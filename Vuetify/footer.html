@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-main>
+        <!-- footer -->
+        <v-footer padless absolute>
+          <v-col class="text-left grey--text" cols="6">
+              {{ new Date().getFullYear() }} — <strong>Vuetify Admin</strong>
+          </v-col>
+          <v-col  class="text-right" cols="6">
+              <v-btn v-for="icon in icons" :key="icon" class="mx-2 grey--text" icon>
+                  <v-icon size="24px">
+                      {{ icon }}
+                  </v-icon>
+              </v-btn>
+          </v-col>
+      </v-footer>
+      <!-- End footer -->
+      </v-main>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+        data () {
+            return {
+              icons: [
+                    'mdi-facebook',
+                    'mdi-twitter',
+                    'mdi-linkedin',
+                    'mdi-instagram',
+                ],
+            }
+        },
+    })
+  </script>
+</body>
+</html>
