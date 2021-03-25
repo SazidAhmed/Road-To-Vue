@@ -11,16 +11,25 @@
   ],
   "users": [
     {
-      "id": 1,
-      "name": "Jhon Doe",
-      "email": "jhon@gmail.com",
-      "password": "123456"
+      "name": "saz",
+      "email": "saz@mail.com",
+      "password": "123456",
+      "category_id": 1,
+      "id": 7971
     },
     {
-      "id": 2,
-      "name": "Jenny Doe",
-      "email": "jenney@gmail.com",
-      "password": "123456"
+      "name": "saz2",
+      "email": "saz@gmal.com",
+      "password": "123456",
+      "category_id": 2,
+      "id": 6677
+    },
+    {
+      "name": "sazid",
+      "email": "sazid@gmail.com",
+      "password": "123",
+      "category_id": 1,
+      "id": 4075
     }
   ],
   "category": [

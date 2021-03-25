@@ -7,6 +7,7 @@ new Vue({
             email:'',
             password:'',
             password2:'',
+            category_id: null,
             search: '',
             color:'',
             loading: false,
@@ -92,6 +93,7 @@ new Vue({
                     name: this.name,
                     email: this.email,
                     password: this.password,
+                    category_id:this.category_id,
                     id: Math.floor(Math.random() * 10000)
                 };
                 fetch('http://localhost:8000/users', {

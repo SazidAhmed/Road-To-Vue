@@ -140,7 +140,7 @@
                                     <v-text-field label="Confirm Password" type="password" v-model="password2" hint="Enter Password Again"></v-text-field>
                                 </v-col>
                                 <v-col class="d-flex" cols="12" sm="12" md="12">
-                                    <v-select :items="category" label="Category" item-text="title" item-value="id" return-object></v-select>
+                                    <v-select :items="category" label="Category" v-model="category_id" item-text="title" item-value="id" ></v-select>
                                 </v-col>
                             </v-row>
                             </v-container>
