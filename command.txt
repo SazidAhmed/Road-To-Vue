@@ -1,0 +1,15 @@
+without cli:
+npm install vue/ npm install vue@next
+
+node -v
+vue cli: npm install -g @vue/cli
+install: vue create projectname 
+
+>manually select features
+> choose vue version, Babel
+>3.x
+>In dedicated config files
+>N
+
+cd projectname
+npm run serve
