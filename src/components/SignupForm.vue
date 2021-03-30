@@ -9,25 +9,47 @@
 
     <label>Role:</label>
     <select v-model="role">
-      <option value="developer">Web Developer</option>
-      <option value="designer">Web Designer</option>
+      <option value="developer">Developer</option>
+      <option value="designer">Designer</option>
     </select>
 
-    <label>Skills (press alt + comma to add):</label>
-    <input type="text" v-model="tempSkill" @keyup.alt="addSkill">
+    <label>Skills (press ctrl + comma to add):</label>
+    <input type="text" v-model="tempSkill" @keyup.ctrl="addSkill">
     <div v-for="skill in skills" :key="skill" class="pill">
       <span @click="deleteSkill(skill)">{{ skill }}</span>
     </div>
-
+   
+    <div>
+      <label>Educational Qualifications :</label>
+    </div>
     <div class="terms">
+      <input type="checkbox" value="a-levels" v-model="qualifications">
+      <label>A Levels</label>
+    </div>
+    <div class="terms">
+      <input type="checkbox" value="bsc" v-model="qualifications">
+      <label>BSC</label>
+    </div>
+    <div class="terms">
+      <input type="checkbox" value="msc" v-model="qualifications">
+      <label>MSC</label>
+    </div>
+     <div class="terms">
       <input type="checkbox" v-model="terms" required>
       <label>Accept terms and conditions</label>
     </div>
-
+    
     <div class="submit">
-      <button>Create an Account</button>
+      <button>Submit</button>
     </div>
   </form>
+  <div>
+    <p>{{ email }}</p>
+    <p>{{ password }}</p>
+    <p>{{ role }}</p>
+    <p>{{ terms }}</p>
+    <p>{{ qualifications }}</p>
+  </div>
 </template>
 
 <script>
@@ -37,6 +59,7 @@ export default {
       email: '',
       password: '',
       role: 'developer',
+      qualifications:[],
       terms: false,
       skills: [],
       tempSkill: '',
@@ -59,14 +82,14 @@ export default {
     },
     handleSubmit() {
       // validate password
-      this.passwordError = this.password.length > 5 ?
-        '' : 'Password must be at least 6 characters long'
+      this.passwordError = this.password.length > 5 ? '' : 'Password must be at least 6 characters long'
       if (!this.passwordError) {
         // make request to database to save user
         console.log('email: ', this.email)
         console.log('password: ', this.password)
         console.log('role: ', this.role)
         console.log('skills: ', this.skills)
+        console.log('qualifications: ', this.qualifications)
         console.log('terms accepted: ', this.terms)
       }
     }
@@ -121,7 +144,7 @@ export default {
     cursor: pointer;
   }
   button {
-    background: #0b6dff;
+    background: green;
     border: 0;
     padding: 10px 20px;
     margin-top: 20px;
