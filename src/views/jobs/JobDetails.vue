@@ -6,6 +6,7 @@
   <div v-else>
     <p>Loading job details...</p>
   </div>
+    
 </template>
 
 <script>
