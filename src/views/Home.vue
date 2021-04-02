@@ -1,14 +1,33 @@
 <template>
   <div class="home">
-    <h1>Homepage</h1>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, praesentium dolorum libero reprehenderit fugiat exercitationem necessitatibus! Incidunt, eum. Aperiam facere magnam consectetur omnis molestiae vero. Placeat illum animi deserunt in illo, amet perspiciatis corrupti ex quo aut, ducimus earum sapiente! Odio pariatur facere voluptatibus libero magnam possimus quo voluptatum nobis.</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, praesentium dolorum libero reprehenderit fugiat exercitationem necessitatibus! Incidunt, eum. Aperiam facere magnam consectetur omnis molestiae vero. Placeat illum animi deserunt in illo, amet perspiciatis corrupti ex quo aut, ducimus earum sapiente! Odio pariatur facere voluptatibus libero magnam possimus quo voluptatum nobis.</p>
+    <h1>Composition Api with Props</h1>
+    <PostList v-if="showPosts" :posts="posts"/>
+    <!-- component unmount -->
+    <button @click="showPosts = !showPosts">toggle posts</button>
+    <!-- component updated -->
+    <button @click="posts.pop()">delete post</button>
   </div>
 </template>
 
 <script>
+import PostList from '../components/PostList.vue'
+import { ref } from 'vue'
+
 export default {
   name: 'Home',
-  components: {}
+  components: { PostList },
+  // Composition Api
+  setup(){
+    const posts = ref([
+      {id: 1, title: 'title one', body: "tsasdad lorem dsadj sad asdj alsdklasdk oa a ldlakd oa sd sdadk aldk asd kooeri sds lasdlk sde asd "},
+      {id: 2, title: 'title one', body: "tsasdad lorem dsadj sad asdj alsdklasdk oa a ldlakd oa sd sdadk aldk asd kooeri sds lasdlk sde asd "}
+    ])
+
+    const showPosts = ref(true)
+    return {
+     posts,
+     showPosts
+    }
+  }
 }
 </script>
