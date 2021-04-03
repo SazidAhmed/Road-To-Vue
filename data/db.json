@@ -1,7 +1,34 @@
 {
-    "jobs": [
-      { "title": "Ninja UX Designer", "id": 1, "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ea perspiciatis, iusto doloremque eaque nulla beatae neque nisi, incidunt tenetur cupiditate officiis ratione ipsum. Assumenda distinctio voluptas, consequuntur, alias odit totam sit provident rem beatae itaque expedita quisquam nihil ex voluptatibus? Tempore ad cum tempora facilis veniam iste magni quidem." },
-      { "title": "Ninja Web Developer", "id": 2, "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ea perspiciatis, iusto doloremque eaque nulla beatae neque nisi, incidunt tenetur cupiditate officiis ratione ipsum. Assumenda distinctio voluptas, consequuntur, alias odit totam sit provident rem beatae itaque expedita quisquam nihil ex voluptatibus?" },
-      { "title": "Ninja Vue Developer", "id": 3, "details": "iusto doloremque eaque nulla beatae neque nisi, incidunt tenetur cupiditate officiis ratione ipsum. Assumenda distinctio voluptas, consequuntur, alias odit totam sit provident rem beatae itaque expedita quisquam nihil ex voluptatibus? Tempore ad cum tempora facilis veniam iste magni quidem." }
-    ]
-  }
+  "posts": [
+    {
+      "id": 1,
+      "title": "welcome to the new blog",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "tags": [
+        "webdev",
+        "coding",
+        "news"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "top 5 CSS tips",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "tags": [
+        "css",
+        "webdev",
+        "coding"
+      ]
+    },
+    {
+      "id": 5707,
+      "title": "Make a modal using CSS",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis est ex, mollis id placerat eu, vulputate vehicula eros. Etiam nec urna egestas, pretium justo ut, luctus arcu. Maecenas dictum mi elit, sed molestie nulla pulvinar a. Sed pellentesque mauris quis ex aliquam tincidunt. Aliquam erat volutpat. Quisque auctor ante at felis maximus, commodo dapibus massa porttitor. Phasellus dignissim finibus placerat. Duis eu erat sem. Suspendisse venenatis molestie sapien a egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas in imperdiet mi. Etiam ac massa vel nulla lobortis viverra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.\n\nMauris in erat tincidunt, dictum ligula id, vulputate nisl. Nam accumsan sodales mi, sed faucibus lacus pharetra id. Vestibulum interdum nibh orci, ut egestas risus venenatis vitae. Mauris tortor nisl, congue vulputate mauris sit amet, mattis pellentesque nunc. Proin imperdiet dapibus tincidunt. Cras at vehicula libero. Quisque lobortis quis est vel interdum. Duis molestie feugiat tellus sed sagittis. Duis eleifend lorem mauris, quis suscipit turpis luctus non.",
+      "tags": [
+        "css",
+        "webdev",
+        "coding"
+      ]
+    }
+  ]
+}
