@@ -5,16 +5,21 @@
     <p class="pre">{{ post.body }}</p>
   </div>
   <div v-else>
-    <p>Spinner</p>
+    <Spinner />
   </div>
 </template>
 
 <script>
+// components
+import Spinner from '../components/Spinner.vue'
+
 //composables
 import getPost from '@/composables/getPost'
 
 export default {
   props: ['id'],
+
+  components: { Spinner },
 
   setup(props) {
     const { post, error, load } = getPost(props.id)
