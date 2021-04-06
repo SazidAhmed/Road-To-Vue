@@ -31,83 +31,16 @@
       ]
     },
     {
-      "id": 4717,
-      "title": "Vue",
-      "body": "Vue js",
+      "id": 4832,
+      "title": "JavaScript",
+      "body": "JavaScript Frameworks\nJavaScript Frameworks\nJavaScript Frameworks\nJavaScript Frameworks",
       "tags": [
+        "vue",
+        "angular",
+        "react",
         "nuxt",
-        "gridsome"
-      ]
-    },
-    {
-      "id": 4368,
-      "title": "Vue",
-      "body": "Vue js",
-      "tags": [
-        "nuxt",
-        "gridsome"
-      ]
-    },
-    {
-      "id": 743,
-      "title": "Vue",
-      "body": "Vue js",
-      "tags": [
-        "nuxt",
-        "gridsome"
-      ]
-    },
-    {
-      "id": 3205,
-      "title": "Vue",
-      "body": "Vue js",
-      "tags": [
-        "nuxt",
-        "gridsome"
-      ]
-    },
-    {
-      "id": 7283,
-      "title": "Vue",
-      "body": "Vue js",
-      "tags": [
-        "nuxt",
-        "gridsome"
-      ]
-    },
-    {
-      "id": 3759,
-      "title": "Vue",
-      "body": "Vue js",
-      "tags": [
-        "nuxt",
-        "gridsome"
-      ]
-    },
-    {
-      "id": 8420,
-      "title": "Vue",
-      "body": "Vue js",
-      "tags": [
-        "nuxt",
-        "gridsome"
-      ]
-    },
-    {
-      "id": 6504,
-      "title": "Vue",
-      "body": "Vue js",
-      "tags": [
-        "nuxt",
-        "gridsome"
-      ]
-    },
-    {
-      "id": 2251,
-      "title": "Vue",
-      "body": "Vue js",
-      "tags": [
-        "nuxt",
+        "next",
+        "gatsby",
         "gridsome"
       ]
     }
