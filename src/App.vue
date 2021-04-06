@@ -1,8 +1,5 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link>
-    <router-link to="/create">Create</router-link>
-  </div>
+  <Navbar />
 
   <button @click="redirect">Redirect</button>
   <button @click="back">Go back</button>
@@ -12,8 +9,11 @@
 </template>
 
 <script>
+import Navbar from './components/Navbar.vue'
+
 export default {
-   methods: {
+  components: { Navbar},
+  methods: {
     redirect() {
       this.$router.push({ name: 'Home' })
     },
@@ -36,23 +36,6 @@ export default {
   color: #2c3e50;
   max-width: 960px;
   margin: 0 auto;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 25px;
-}
-
-#nav a.router-link-exact-active {
-  color: white;
-  background: green;
 }
 
 button {
