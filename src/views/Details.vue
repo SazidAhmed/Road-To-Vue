@@ -16,13 +16,21 @@ import Spinner from '../components/Spinner.vue'
 //composables
 import getPost from '@/composables/getPost'
 
+//router
+import { useRoute } from 'vue-router'
+
 export default {
   props: ['id'],
 
   components: { Spinner },
 
   setup(props) {
-    const { post, error, load } = getPost(props.id)
+    //route
+    const route = useRoute()
+    console.log(route)
+
+    //destructure from composable
+    const { post, error, load } = getPost(route.params.id)
 
     load()
     
