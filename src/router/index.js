@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Details from '../views/Details.vue'
 import Create from '../views/Create.vue'
 import NotFound from '../views/NotFound.vue'
+import Tag from '../views/Tag.vue'
 
 const routes = [
   {
@@ -20,6 +21,12 @@ const routes = [
     path: '/create',
     name: 'Create',
     component: Create,
+    props: true
+  },
+  {
+    path: '/tag/:tag',
+    name: 'Tag',
+    component: Tag,
     props: true
   },
   
