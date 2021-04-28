@@ -1,0 +1,4 @@
+json-server --watch db.json
+
+
+npx browserslist@latest --update-db
