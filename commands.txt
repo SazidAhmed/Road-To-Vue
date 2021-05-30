@@ -1,0 +1,2 @@
+npm install -s graphql vue-apollo apollo-boost
+
