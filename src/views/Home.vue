@@ -29,10 +29,27 @@ export default {
 
 <style>
   /* enter transitions */
+  /* .toast-enter-from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+
+  .toast-enter-to {
+    opacity: 1;
+    transform: translateY(0px);
+  } */
+
   .toast-enter-active {
+    /* transition: all 0.3s ease; */
     animation: wobble 0.5s ease;
   }
   /* leave transitions */
+
+  /* .toast-leave-from {
+    opacity: 1;
+    transform: translateY(0px);
+  } */
+
   .toast-leave-to {
     opacity: 0;
     transform: translateY(-60px);
